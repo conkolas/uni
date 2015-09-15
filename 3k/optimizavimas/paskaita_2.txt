@@ -1,0 +1,78 @@
+1. Iskilosios aibes ir iskilosio funkcijos
+
+    1.1 Iskilosios aibes sandara
+    Tegu X yra n-mates erdves Rn aibe.
+    Ji vadinama iskilaja aibe, jeigu kartu su bet kuriais taskais x ir y
+    jai priklauso ir kiekvienas intervalo [x; y] taskas.
+
+    Siekiant matematinio tikslumo, butina apibudinti intervala [x, y],
+    nes tik isskirtiniais atvejais, ji galima atvaizduoti atkarpele.
+    Kai n > 3, intervalo [x,y] geometrinis vaizdavimas neimanomas.
+
+    [x,y] = {z(alpha) is Rn: z(alpha) = alpha x + (1-alpha)y, aplha is [0,1] }
+
+    alpha x + (1-alpha)y, kai aplha is [0,1], vadinama tasku x ir y iskiluoju dariniu.
+    kai imanoma pavaizduoti z(alpha) = alpha*x + (1- alpha)y, tai gausime kurios nors atkarpos [x, y] taska.
+
+    Taigi iskilosios aibes apibrezima galima suformuluoti ir taip.
+
+    @1.1 Apibrezimas
+    Erdves Rn aibe X vadinama iskilaja aibe, jeigu 
+    z(alpha) = alpha*x + (1-alpha)*y is X,
+    kai x ir y yra bet kurie aibes X taskai, o alpha yra bet kuris realusis skaicius, 
+    priklausantis intervalui [0,1]
+
+    Pavyzdys. Irodykime, kad matricines lygties Ax=b
+    (cia A = m*n matmenu matrica, o b priklauso Rm)
+    sprendiniu aibe X (tarus, kad X != null) yra iskiloji aibe.
+
+    Pasirinkime bet kuriuos du, aibe X taskus x' ir x"
+    bei alpha is [0, 1].
+    Sudarykime iskiluji daryni x(alpha) = alpha * x' + (1-alpha)x".
+    Teiginiui irodyti, pakanka isitikinti, kad x(alpha) yra Ax = b sprendinys.
+
+    Apsk. Ax(alpha) Gausime:
+    Ax(alpha) = 
+    A(alpha*x' + (1-alpha)*x") = 
+    A * (alpha * x') + A*(1-alpha)*x" = 
+    alpha*(A*x') + (1-alpha)(Ax") = 
+    alpha*b + (1-alpha)*b = 
+    alpha*b + b - alpha*b = b
+
+    Taigi x(alpha) yra lygties Ax=b sprendinys.
+    Isvada. Ax=b aibe X yra iskiloji aibe
+
+    Pastaba. Turekime mintyje, kad matricine mintis Ax=b istikruju yra tiesiniu lygciu sistema
+    a11*x1 + a12 *x2 + .. + a1n*xn = b1
+    a21*x1 + a22 *x2 + .. + a2n*xn = b2
+    ....
+    am1*x1 + am2 *x2 + .. + amn*xn = bm
+
+
+    1.2 Iskilosios ir gaubtines funkcijos samprata
+
+    @1.2. Apibrezimas
+    Skaliarine f-ja fi, apibrezta iskilojoje aibeje X, vadinama iskilaja (igaubtaja) funkcija,
+    jeigu esant bet kuriems x, y is aibes X ir alpha, alpha priklauso [0,1],
+    tenkinama nelygybe
+    fi(alpha*x + (1-alpha)*y) <= alpha*fi(x) + (1-alpha)*fi(y) 1.2
+
+    (fi(alpha*x + (1-alpha)*y) >= alpha*fi(x) + (1-alpha)*fi(y)) 1.3
+    Jeigu (1.2) galioja nelygybe fi(alpha*x + (1-alpha)*y) < alpha*fi(x) + (1-alpha)*fi(y), kai x is(0,1),
+    tai f-ja fi, vadinama grieztai iskilaja f-ja.
+
+    Analogiskai, jeigu vietoje (1.3) galioja nelygybe (fi(alpha*x + (1-alpha)*y) > alpha*fi(x) + (1-alpha)*fi(y)),
+    tai f-ja fi vadinama grieztai igaubtaja f-ja.
+
+    Atkreipkime demesi i tai, kad tiek iskilosios, tiek igaubtosios f-jos, nagrinejamos tik
+    iskilosiose aibes. Jei apibrezimo f-jos apibrezimo sritis X nebutu iskiloji aibe, tai atsirastu
+    bent viena jos elementu x ir y pora, tokia, kad alpha*x + (1-alpha)*y nebutu aibes X taskas,
+    kai alpha yra kuris nors intervalo (0,1) taskas.
+
+    Nagrinedami apibrezima atkreipkime demesi i tai, kad
+    alpha*x + (1-alpha)*y yra tasku x ir y iskilasis darinys (intervalo [x, y] taskas),
+    o alpha*fi(x) + (1-alpha)*fi(y) yra f-js reiksmiu fi(x) ir f(y) iskilasis darinys
+    (atkarpos [fi(x); fi(y)] taskas). Beje intervalo [fi(x); fi(y)] skaiciai gali eiti ne tik didejimo,
+    bet ir mazejimo tvarka. Tas intervalas yra realiuju skaiciu intervalas.
+    Atveju n=1, tai yra kai fi yra vieno kintamojo f-ja, iskilosios funkcijos grafiko pabudis yra isgaubtas ir kabantis.
+
