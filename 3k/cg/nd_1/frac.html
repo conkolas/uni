@@ -1,0 +1,67 @@
+<!-- saved from url=(0071)http://uosis.mif.vu.lt/~rimask/wp-content/uploads/canvas/transform.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1257">
+  <script type="application/javascript">
+
+	function draw() {
+		var canvas = document.getElementById('canvas');
+		if (canvas.getContext) {
+			var ctx = canvas.getContext("2d");
+			// Draw border
+			drawBorder();
+			
+			ctx.fillStyle = "rgb(255,0,0)";
+			drawF(8);
+			ctx.restore();
+			ctx.save();
+			drawF(4);
+		}
+		
+		function drawBorder() {
+			ctx.beginPath();
+			ctx.beginPath();
+			ctx.moveTo(0,0);
+			ctx.lineTo(500,0);
+			ctx.lineTo(500,500);
+			ctx.lineTo(0,500);
+			ctx.closePath();
+			ctx.stroke(); 
+		}
+		function drawF(step) {
+			if (step > 0) {
+				step = step-1;
+				ctx.save();
+				ctx.save();
+				
+				ctx.transform(0.5, 0, 0, 0.5, 0, 0);
+				drawF(step);
+				ctx.restore();
+				
+				ctx.transform(0.5, 0, 0, 0.5, 0, 250);
+				
+				drawF(step);
+				ctx.restore();
+				
+				ctx.transform(0.5, 0, 0, 0.5, 250, 0);
+				ctx.rotate((Math.PI/180) * 90);
+				drawF(step);
+			} else {
+				drawT();
+			}
+		}
+		
+		function drawT() {
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(500, 0);
+			ctx.lineTo(0, 500);
+			ctx.fill();
+		}
+	}
+ </script>
+ </head>
+ <body onload="draw();">
+   <h1>Transformations of coordinates</h1>
+   <canvas id="canvas" width="500" height="500"></canvas>
+ 
+
+</body></html>
